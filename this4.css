@@ -1,0 +1,12 @@
+body{
+background-color: #441b1b;
+color: magenta;
+background-image: url('cssBg2.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+font-size: 1.5em;
+}
+li{
+  list-style: none;
+  /*padding: 0.15em;*/
+}
