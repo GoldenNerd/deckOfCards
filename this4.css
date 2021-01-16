@@ -31,7 +31,6 @@ input{
   margin:0.75em auto;
   font-weight:bold;
   border-radius:0.4em;
-  outline: none ;
 }
 ul{
   display:flex;
