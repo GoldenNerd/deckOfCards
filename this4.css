@@ -27,6 +27,7 @@ flex-direction: row;
 }
 input{
   display: block;
+  height:1.75em;
   margin:0.75em auto;
   font-weight:bold;
   border-radius:0.4em;
