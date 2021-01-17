@@ -4,7 +4,7 @@ body{
 background-color: #441b1b;
 color: magenta;
 background-image: url('cssBg2.png');
-background-repeat: repeat;
+background-repeat: noo-repeat;
 background-size: cover;
 font-size: 1.5em;
 }
