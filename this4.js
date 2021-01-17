@@ -1,44 +1,35 @@
 // ### CREATING A DECK OBJECT ###
 const deckObj = {
 // Shuffled deck of cards   
-deckOfCards: [], 
-// possible symbols
-symbols: [{diamond:'&diams;'}, {club:'&clubs;'}, {spade:'&#9824;'}, {heart:'&hearts;'}],
-// values of Cards
-cardValues: ['A' ,'2' ,'3' ,'4' ,'5' ,'6' ,'7' ,'8' ,'9' ,'10' ,'J' ,'Q' ,'K'],
-  
-// ** sources of card components **
-remainingSymbolKeys: [],
-diamond: [] ,
-club: [] ,
-spade: [] ,
-heart: [],
-  
-// Capture each symbol object's property name and save them all to an array
-allPossibleSymbolKeys(){
-const allPossibleSymbolKeys = [];
-for (const symbolObj of this.symbols){
-const symbolPropertyName = Object.keys(symbolObj)[0];
-allPossibleSymbolKeys.push(symbolPropertyName);
-  }
-return allPossibleSymbolKeys;
- },
-  
-// Initialize sources of card components
-initialize(){
+deckOfCards: [],
+
+// ymbols' data
+symbols: {diamond:'&diams;', club:'&clubs;', spade:'&#9824;', heart:'&hearts;'},
+
+// Possible values for each symbol 
+valuesForEachSymbol: ['A' ,'2' ,'3' ,'4' ,'5' ,'6' ,'7' ,'8' ,'9' ,'10' ,'J' ,'Q' ,'K'],
+
+// Capture symbol's property names and save them to an array
+allSymbolPropertyNames(){
+const allSymbolPropertyNames = Object.keys(this.symbols);
+return allSymbolPropertyNames;
+},
+
+// ** sources of cards building blocks **
+// Create cards deck precursors, and initialize them
+initDeck(){
 // Erase deckOfCards' content
 this.deckOfCards.length = 0;
-// Set arrays' initial values
-this.remainingSymbolKeys = this.allPossibleSymbolKeys();
-this.diamond.length = 0;
-this.diamond = [... this.cardValues];
-this.club.length = 0;
-this.club = [... this.cardValues];
-this.spade.length = 0;
-this.spade = [... this.cardValues];
-this.heart.length = 0;
-this.heart = [... this.cardValues];
- },
+// Initialize sources of card components
+this.remainingSymbolKeys= [];
+this.remainingSymbolKeys = this.allSymbolPropertyNames();
+// Definition of card packs. As values are removed every time a random card draw occurs, these arrays keep track of remaining values for each symbol.
+// Initialize card packs w/ card values
+for(const symPropName of this.allSymbolPropertyNames()){
+  this[`${symPropName}`] =[];
+  this[`${symPropName}`] = [... this.valuesForEachSymbol];
+  }
+},
 
 // Random selection of a symbol's property name (key)
 randomSymbolKey(){
@@ -51,11 +42,10 @@ return randomSymbolKey;
  
 // Convert symbol to icon
 toIcon(randomSymbolKey){
-const dataObj = {diamond:'&diams;', club:'&clubs;', spade:'&#9824;', heart:'&hearts;'};
-return dataObj[`${randomSymbolKey}`];
+return this.symbols[`${randomSymbolKey}`];
   },
   
-// Display card on browser
+// Display card on browser tab
 displayOutcomeCard(randomOutcomeCard){
 const pre = document.createElement('pre');
 pre.innerHTML = `${randomOutcomeCard.join("")}`;
@@ -81,55 +71,51 @@ const randomSymbolKey = this.randomSymbolKey();
 const remainingValuesInArray = this[`${randomSymbolKey}`].length;
 // Select a value at random using length property of previous step
 const randomPointerToValue = Math.floor(Math.random()*remainingValuesInArray) ;
-// draw (delete) value from pack, and preserve deletef in a variable
+// draw (delete) value from pack, and preserve deleted in a variable
 const randomCardValue = this[`${randomSymbolKey}`].splice(randomPointerToValue, 1);
-// Compose the object for the outcome card
+// Compose the outcome card object 
 const randomOutcomeCard = [];
 randomOutcomeCard[0] = this.toIcon(randomSymbolKey);
 randomOutcomeCard[1] = randomCardValue;
 this.displayOutcomeCard(randomOutcomeCard);
 this.discardEmptyPack(randomSymbolKey);
-}, 
+},
 
-// cards deck composer
-deckComposer(){
-  for (let i = 0; i < 52; i++) {
-// Add a card to the cards deck
-this.deckOfCards.unshift(this.drawACard());
-  }
-return this.deckOfCards;
- },
-    
-// initialize objects prior to new shuffle
-docClear(){
+// Remove previous card deck from DOM (if any) in preparation for new shuffled deck of cards
+initDoc(){
 // remove a ul
 const body = document.querySelector('body');
 const ul = document.querySelector('ul');
 body.removeChild(ul);
 const newul = document.createElement('ul');
 body.appendChild(newul);
- }, 
-};
-
-function initialize(){
-deckObj.initialize();
-deckObj.docClear();
 const pre = document.querySelector('#preserve');
 pre.innerHTML ='Ready to RUMBLE!!! 😁';
-  }
-  
-function shuffle(){
-deckObj.deckComposer();
+ },
+ 
+// cards deck builder (draw one card and add it to the deck, deckSize times)
+deckBuilder(){
+  const deckSize = Object.keys(this.symbols).length*this.valuesForEachSymbol.length;
+  for (let i = 0; i < deckSize; i++) {
+// Add a card to the cards deck
+this.deckOfCards.unshift(this.drawACard());}
 const pre = document.querySelector('#preserve');
 pre.innerHTML ='Here is your shuffled\n deck of cards 🤩';
-  }
-  
+return this.deckOfCards;
+ },
+ 
+};
+// initialize objects prior building new deck of shuffled cards
+const init=()=>{
+deckObj.initDeck();
+deckObj.initDoc();
+ };
+ 
 // Listen for initialization directive
-const initializeBtn = document.querySelector ('#reset');
-initializeBtn.addEventListener('click', 
-initialize);
+const initBtn = document.querySelector ('#reset');
+initBtn.addEventListener('click', 
+init);
 
 // Listen for shuffle directive
 const shuffleBtn = document.querySelector ('#shuffle');
-shuffleBtn.addEventListener('click', 
-shuffle);
+shuffleBtn.addEventListener('click', ()=>deckObj.deckBuilder());
