@@ -4,7 +4,7 @@ body{
 background-color: #441b1b;
 color: magenta;
 background-image: url('cssBg2.png');
-background-repeat: noo-repeat;
+background-repeat: no-repeat;
 background-size: cover;
 font-size: 1.5em;
 }
@@ -26,12 +26,12 @@ flex-direction: row;
   font-weight: bold;
 }
 input{
+  line-height: 45%;
+  height: 1.75em;
   display: block;
-  height:1.75em;
   margin:0.75em auto;
   font-weight:bold;
   border-radius:0.4em;
-  line-height: 45%;
 }
 ul{
   display:flex;
