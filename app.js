@@ -127,7 +127,7 @@ const briscolaObj = {
 deckOfCards: [],
 
 // ymbols' data
-suitObjects: {basto:'url(pics/basto1.png)', copa:'url(pics/copa1.png)', espada:'url(pics/espada1.png)', oro:'url(pics/oro1.png)'},
+suitObjects: {bastoni:'url(pics/basto1.png)', coppe:'url(pics/copa1.png)', spade:'url(pics/espada1.png)', dinari:'url(pics/oro1.png)'},
 
 // Possible values for each suit 
 suitValues: ['1' ,'2' ,'3' ,'4' ,'5' ,'6' ,'7' ,'8' ,'9' ,'10'],
