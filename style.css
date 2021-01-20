@@ -10,9 +10,44 @@ background-size: cover;
 
 #deck-choice{
   display: block;
+  font-size: 1.25em;
   text-align: center;
-  font-size:1.25em;
+  padding: 0;
+  margin-bottom: 0;
 }
+
+#choices{
+  /* outline: 1px solid white; */
+  width: fit-content;
+display: block;
+margin:0 auto 0.5em auto;
+}
+
+#reset, #shuffle{
+  line-height: 45%;
+  height: 1.75em;
+  display: block;
+  margin:0.75em auto;
+  font-weight:bold;
+  border-radius:0.4em;
+}
+
+#preserve{
+  display: block ;
+  text-align: center;
+  font-weight:bold ;
+  width: 100vw;
+  margin:0 auto;
+  font-size: 1.25em;
+}
+
+ul{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+} 
 
 .briscola{
   width: 67px;
@@ -45,32 +80,6 @@ background-size: cover;
   list-style: none;
   border:1px solid black;
   font-weight: bold;
-}
-
-#reset, #shuffle, label{
-  line-height: 45%;
-  height: 1.75em;
-  display: block;
-  margin:0.75em auto;
-  font-weight:bold;
-  border-radius:0.4em;
-}
-
-ul{
-  display:flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-} 
-
-#preserve{
-  display: block ;
-  text-align: center;
-  font-weight:bold ;
-  width: 100vw;
-  margin:0 auto;
-  font-size: 1.5em;
 }
 
 .briscaSpan{
