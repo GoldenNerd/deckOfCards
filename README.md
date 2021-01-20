@@ -1,5 +1,5 @@
 # deckOfCards
-Simulates shuffling a deck of cards
+Simulates shuffling a deck of cards. 
 Firstly select the preferred suit type. Could be Poker, or Briscola. 
 Then press the upper button to initialize the App parameters.
 Lastly press the lower button to obtain the shuffled deck of cards.
