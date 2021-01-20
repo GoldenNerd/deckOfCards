@@ -47,7 +47,7 @@ background-size: cover;
   font-weight: bold;
 }
 
-#reset, #shuffle{
+#reset, #shuffle, label{
   line-height: 45%;
   height: 1.75em;
   display: block;
