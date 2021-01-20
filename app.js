@@ -127,7 +127,7 @@ const briscolaObj = {
 deckOfCards: [],
 
 // ymbols' data
-iconObjects: {basto:'url(pics/basto1.png)', copa:'url(pics/copa1.png)', espada:'url(pics/espada1.png)', oro:'url(pics/oro1.png)'},
+iconObjects: {basto:'url(basto1.png)', copa:'url(copa1.png)', espada:'url(espada1.png)', oro:'url(oro1.png)'},
 
 // Possible values for each icon 
 iconValues: ['1' ,'2' ,'3' ,'4' ,'5' ,'6' ,'7' ,'8' ,'9' ,'10' ,'11' ,'12'],
