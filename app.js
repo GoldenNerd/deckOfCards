@@ -126,7 +126,7 @@ const briscolaObj = {
 // Shuffled deck of cards   
 deckOfCards: [],
 
-// ymbols' data
+// Symbols' data
 suitObjects: {bastoni:'url(pics/basto1.png)', coppe:'url(pics/copa1.png)', spade:'url(pics/espada1.png)', dinari:'url(pics/oro1.png)'},
 
 // Possible values for each suit 
