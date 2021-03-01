@@ -1,4 +1,4 @@
-# Shuffled Deck Of Cards (Poker or Briscola)
+# Shuffled Deck Of Cards. A project to learn JS OOP
 Simulates shuffling a deck of cards. 
 Firstly select the preferred suit type. Could be Poker, or Briscola. 
 Then press the upper button to initialize the App parameters.
